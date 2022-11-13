@@ -3,7 +3,7 @@ import * as C from './App.styles';
 import { Item } from './data/types/Item';
 import { items } from './data/items';
 import { categories } from './data/categories';
-import {filterListByMonth, getCurrentMonth} from './data/helpers/dateFilter'
+import { filterListByMonth, getCurrentMonth } from './data/helpers/dateFilter'
 import { TableArea } from './components/tableArea';
 
 
@@ -12,7 +12,7 @@ const App = () => {
   const [filteredList, setfilteredList] = useState<Item[]>([])
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
-  useEffect(()=>{
+  useEffect(() => {
     setfilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth])
 
@@ -22,12 +22,12 @@ const App = () => {
         <C.HeaderText> Sistema Financeiro</C.HeaderText>
       </C.Header>
       <C.Body>
-        
-      {/*Área de informações*/ }
 
-      {/*àrea de inserção*/ }
+        {/*Área de informações*/}
 
-      <TableArea/>
+        {/*àrea de inserção*/}
+
+        <TableArea list={filteredList} />
 
       </C.Body>
     </C.Container>
